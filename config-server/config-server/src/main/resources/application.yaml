@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # CHANGEZ CETTE URL avec votre dépôt GitHub
+          uri: https://github.com/Hiba1228/config-repo_microservices.git
+          clone-on-start: true
+          default-label: main
+          # Pour un dépôt privé, ajoutez:
+          # username: votre-username
+          # password: votre-token
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
